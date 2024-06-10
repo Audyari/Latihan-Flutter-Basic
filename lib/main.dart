@@ -1,5 +1,6 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'global_theme_data.dart'; // Pastikan Anda mengimpor kelas GlobalThemeData
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,51 +13,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'My Flutter App',
-      home: HomePage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      themeMode: ThemeMode.light, // Anda bisa mengganti dengan ThemeMode.dark
+      theme: GlobalThemeData.lightThemeData,
+      darkTheme: GlobalThemeData.darkThemeData,
+      home: const HomeScreen(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  String _message = 'Hello, World!';
-
-  void _updateMessage() {
-    setState(() {
-      _message = 'Button clicked!';
-    });
-  }
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Flutter App'),
+        title: const Text('Flutter Theme Demo'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Text(
-              _message,
-              style: const TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
+              'Hello, Flutter!',
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: _updateMessage,
-              child: const Text('Click me'),
+              onPressed: () {},
+              child: const Text('Button'),
             ),
           ],
         ),
