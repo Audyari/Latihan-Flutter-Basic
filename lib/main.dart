@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'global_theme_data.dart'; // Pastikan Anda mengimpor kelas GlobalThemeData
+// Pastikan Anda mengimpor kelas GlobalThemeData
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(const MyApp() as Widget);
 }
 
 class MyApp extends StatelessWidget {
@@ -13,40 +13,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.light, // Anda bisa mengganti dengan ThemeMode.dark
-      theme: GlobalThemeData.lightThemeData,
-      darkTheme: GlobalThemeData.darkThemeData,
-      home: const HomeScreen(),
+   return const MaterialApp(
+      title: 'GridView Example',
+      home: GridViewExample(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class GridViewExample extends StatelessWidget {
+  const GridViewExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Theme Demo'),
+        title: const Text('GridView Example'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Hello, Flutter!',
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Button'),
-            ),
-          ],
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3, // Jumlah kolom dalam grid
+          crossAxisSpacing: 10.0, // Jarak antar kolom
+          mainAxisSpacing: 10.0, // Jarak antar baris
         ),
+        itemCount: 12, // Jumlah item dalam grid
+        itemBuilder: (context, index) {
+          return Container(
+            color: Colors.primaries[index % Colors.primaries.length], // Warna latar belakang
+            child: Center(
+              child: Text(
+                'Item ${index + 1}',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
