@@ -13,43 +13,49 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return const MaterialApp(
-      title: 'GridView Example',
-      home: GridViewExample(),
+  return MaterialApp(
+      title: 'Mapping Collections Example',
+      home: MyHomePage(),
     );
   }
 }
 
-class GridViewExample extends StatelessWidget {
-  const GridViewExample({super.key});
+class MyHomePage extends StatelessWidget {
+  final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6'];
+
+  MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GridView Example'),
+        title: const Text('Mapping Collections Example'),
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, // Jumlah kolom dalam grid
-          crossAxisSpacing: 10.0, // Jarak antar kolom
-          mainAxisSpacing: 10.0, // Jarak antar baris
-        ),
-        itemCount: 12, // Jumlah item dalam grid
-        itemBuilder: (context, index) {
-          return Container(
-            color: Colors.primaries[index % Colors.primaries.length], // Warna latar belakang
-            child: Center(
-              child: Text(
-                'Item ${index + 1}',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(items[index]),
+                );
+              },
             ),
-          );
-        },
+          ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: items.map((item) {
+                return Card(
+                  child: Center(
+                    child: Text(item),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
