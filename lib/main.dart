@@ -1,20 +1,31 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'my_page.dart';
+import "package:flutter/material.dart";
+import "package:myapp/widgets/soal_1.dart";
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp() as Widget);
-}
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:4018875122.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1948520523.
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyPage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Text Judul',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
     );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Soal_1();
   }
 }
