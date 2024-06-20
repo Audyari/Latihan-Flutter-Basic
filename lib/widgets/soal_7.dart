@@ -10,7 +10,7 @@ class soal_7 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Soal 6')),
+        title: const Center(child: Text('Soal 9')),
         backgroundColor: Colors.teal,
       ),
       body: Align(
@@ -18,7 +18,7 @@ class soal_7 extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -36,6 +36,7 @@ class soal_7 extends StatelessWidget {
                   ),
                 ),
               ),
+               const SizedBox(width: 16.0),
               Container(
                 width: 150,
                 height: 150,
