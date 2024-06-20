@@ -14,13 +14,13 @@ class soal_7 extends StatelessWidget {
       body: Align(
         alignment: Alignment.topLeft,
         child: Padding(
-          padding: const EdgeInsets.all(0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: 150,
@@ -37,7 +37,6 @@ class soal_7 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 16.0),
                   Container(
                     width: 150,
                     height: 150,
@@ -55,9 +54,9 @@ class soal_7 extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16.0),
+              const Spacer(), // Tambahkan Spacer untuk mengisi sisa ruang
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: 150,
@@ -74,7 +73,6 @@ class soal_7 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 16.0),
                   Container(
                     width: 150,
                     height: 150,
