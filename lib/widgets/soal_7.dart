@@ -33,32 +33,27 @@ class _soal_7State extends State<soal_7> {
       ),
       body: Scrollbar(
         controller: _scrollController,
-        child: ListView.separated(
+        child: GridView.builder(
           controller: _scrollController,
-          itemCount: 11,
-          separatorBuilder: (context, index) => const SizedBox(height: 16),
-          itemBuilder: (context, index) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  width: 150,
-                  height: 150,
-                  color: Colors.primaries[index % Colors.primaries.length],
-                  child: Center(
-                    child: Text(
-                      'Hello $index',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+          itemCount: 27,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 16.0,
+            crossAxisSpacing: 16.0,
+          ),
+          itemBuilder: (context, index) => Container(
+            color: index % 2 == 0 ? Colors.blue : Colors.yellow,
+            child: Center(
+              child: Text(
+                'Hello $index',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
                 ),
-              ],
-            );
-          },
+              ),
+            ),
+          ),
         ),
       ),
     );
