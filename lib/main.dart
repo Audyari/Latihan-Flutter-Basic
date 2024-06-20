@@ -1,7 +1,7 @@
 
 import "package:flutter/material.dart";
 
-import "package:myapp/widgets/soal_6.dart";
+import "package:myapp/widgets/soal_7.dart";
 
 
 
@@ -30,6 +30,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const soal_6();
+    return const soal_7();
   }
 }
