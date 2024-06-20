@@ -10,15 +10,15 @@ class soal_7 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Soal 9')),
+        title: const Center(child: Text('Soal 10')),
         backgroundColor: Colors.teal,
       ),
       body: Align(
         alignment: Alignment.topLeft,
         child: Padding(
           padding: const EdgeInsets.all(0),
-          child: Row(
-             mainAxisAlignment: MainAxisAlignment.end,
+          child: Column(
+             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -36,7 +36,7 @@ class soal_7 extends StatelessWidget {
                   ),
                 ),
               ),
-               const SizedBox(width: 16.0),
+               const SizedBox(height: 16.0),
               Container(
                 width: 150,
                 height: 150,
