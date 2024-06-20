@@ -1,4 +1,3 @@
-
 import "package:flutter/material.dart";
 
 // ignore: camel_case_types
@@ -11,7 +10,7 @@ class soal_7 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Soal 7')),
+        title: const Center(child: Text('Soal 6')),
         backgroundColor: Colors.teal,
       ),
       body: Align(
@@ -19,6 +18,7 @@ class soal_7 extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -36,8 +36,6 @@ class soal_7 extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                  width: 20), // Penambahan SizedBox di antara 2 container
               Container(
                 width: 150,
                 height: 150,
