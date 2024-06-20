@@ -1,6 +1,8 @@
 
 import "package:flutter/material.dart";
-import "package:myapp/blocs/my_bloc/responsiveCenter.dart";
+
+import "package:myapp/widgets/soal_6.dart";
+
 
 
 // Suggested code may be subject to a license. Learn more: ~LicenseLog:4018875122.
@@ -28,6 +30,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomePage();
+    return const soal_6();
   }
 }
