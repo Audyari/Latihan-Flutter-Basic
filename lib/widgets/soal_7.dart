@@ -1,60 +1,79 @@
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class soal_7 extends StatefulWidget {
-  const soal_7({super.key});
+class MyHomePage1 extends StatelessWidget {
+  MyHomePage1({super.key});
 
-  @override
-  State<soal_7> createState() => _soal_7State();
-}
-
-// ignore: camel_case_types
-class _soal_7State extends State<soal_7> {
-  late final ScrollController _scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController();
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
+  final List<Map<String, String>> items = [
+    {'title': 'Item 1', 'subtitle': 'Subtitle 1'},
+    {'title': 'Item 2', 'subtitle': 'Subtitle 2'},
+    {'title': 'Item 3', 'subtitle': 'Subtitle 3'},
+    {'title': 'Item 4', 'subtitle': 'Subtitle 4'},
+    {'title': 'Item 5', 'subtitle': 'Subtitle 5'},
+    {'title': 'Item 6', 'subtitle': 'Subtitle 6'},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Soal 16')),
-        backgroundColor: Colors.teal,
+        title: const Text('ListView with Container and Column'),
       ),
-      body: Scrollbar(
-        controller: _scrollController,
-        child: GridView.builder(
-          controller: _scrollController,
-          itemCount: 27,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 16.0,
-            crossAxisSpacing: 16.0,
-          ),
-          itemBuilder: (context, index) => Container(
-            color: index % 2 == 0 ? Colors.blue : Colors.yellow,
-            child: Center(
-              child: Text(
-                'Hello $index',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 100,
+                        width: 400,
+                        padding: const EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          color: index % 2 == 0
+                              ? Colors.blue[100]
+                              : Colors.yellow[100],
+                          borderRadius: BorderRadius.circular(8.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Text(
+                          items[index]['title']!,
+                          style: const TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8.0),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text(
+                          items[index]['subtitle']!,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
-        ),
+        ],
       ),
     );
   }

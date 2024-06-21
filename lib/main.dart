@@ -1,6 +1,5 @@
 
 import "package:flutter/material.dart";
-
 import "package:myapp/widgets/soal_7.dart";
 
 
@@ -30,6 +29,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const soal_7();
+    return MyHomePage1();
   }
 }
