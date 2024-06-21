@@ -7,72 +7,28 @@ class MyHomePage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Stack of Centered Containers'),
+        title: const Text('Container with Circular Decoration'),
       ),
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          Positioned(
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 350,
-                height: 350,
-                color: Colors.orange,
-              ),
+      body: Center(
+        child: Container(
+          width: 250,
+          height: 250,
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: Colors.blue,
+              width: 10.0,
             ),
           ),
-          Positioned(
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 300,
-                height: 300,
-                color: Colors.purple,
-              ),
+          child: const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Image(
+              image: NetworkImage('https://source.unsplash.com/random/500x500'),
+              fit: BoxFit.cover,
             ),
           ),
-          Positioned(
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 250,
-                height: 250,
-                color: Colors.yellow,
-              ),
-            ),
-          ),
-          Positioned(
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 200,
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          Positioned(
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 150,
-                height: 150,
-                color: Colors.green,
-              ),
-            ),
-          ),
-          Positioned(
-            child: Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.blue,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
