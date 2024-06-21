@@ -7,57 +7,54 @@ class MyHomePage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Unlimited ListView'),
+        title: const Text('Stack of Containers'),
       ),
-      body: ListView.builder(
-        itemCount: 100,
-        itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.all(16.0),
-            child: Stack(
-              children: [
-                // Bagian Gambar
-                Container(
-                  width: double.infinity,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: NetworkImage('https://picsum.photos/id/${index + 1}/200/200'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                // Bagian Teks
-                Positioned(
-                  bottom: 16.0,
-                  left: 16.0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Item ${index + 1}',
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(height: 8.0),
-                      Text(
-                        'Ini adalah deskripsi item ${index + 1}.',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.grey[200],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+      body: Stack(
+        alignment: Alignment.topLeft,
+        children: [
+          Positioned(
+            child: Container(
+              width: 350,
+              height: 350,
+              color: Colors.orange,
             ),
-          );
-        },
+          ),
+          Positioned(
+            child: Container(
+              width: 300,
+              height: 300,
+              color: Colors.purple,
+            ),
+          ),
+          Positioned(
+            child: Container(
+              width: 250,
+              height: 250,
+              color: Colors.yellow,
+            ),
+          ),
+          Positioned(
+            child: Container(
+              width: 200,
+              height: 200,
+              color: Colors.red,
+            ),
+          ),
+          Positioned(
+            child: Container(
+              width: 150,
+              height: 150,
+              color: Colors.green,
+            ),
+          ),
+          Positioned(
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.blue,
+            ),
+          ),
+        ],
       ),
     );
   }
