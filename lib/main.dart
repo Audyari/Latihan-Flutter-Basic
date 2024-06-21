@@ -29,6 +29,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyHomePage1();
+    return const MyHomePage1();
   }
 }
